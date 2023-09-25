@@ -7,6 +7,8 @@ use App\Entity\Movie;
 use App\Repository\MovieRepository;
 use App\Repository\RatingRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 
 
@@ -19,6 +21,7 @@ class Rating{
     private ? int $id= null;
 
     #[ORM\Column(type: 'integer')]
+    #[Assert\LessThanOrEqual(value: 10, message:"Rating score must be less than or equal to 10.")]
     private ? int $ratingScore= null;
 
     #[ORM\Column(length: 255, nullable: true)]
@@ -67,12 +70,12 @@ class Rating{
         $this->review = $review;
     }
 
-    public function getUser(): \App\Entity\User
+    public function getUser(): User
     {
         return $this->user;
     }
 
-    public function setUser(\App\Entity\User $user): void
+    public function setUser(User $user): void
     {
         $this->user = $user;
     }

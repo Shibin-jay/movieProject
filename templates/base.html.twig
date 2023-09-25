@@ -29,13 +29,10 @@
                             {{ app.user.username }}
                         </a>
                     </li>
-{#                    <li>#}
-{#                        <a>#}
+                    {% if app.user is not null and 'ROLE_ADMIN' in app.user.roles %}
+                        <li><a href="{{ path('admin_app_dashboard') }}">Dashboard</a></li>
+                    {% endif %}
 
-{#                            <li>{{ app.user.roles|join(', ') }}</li>#}
-
-{#                        </a>#}
-{#                    </li>#}
                     <li>
                         <a
                                 href="/{{ app.user ?'logout' : 'login' }}"

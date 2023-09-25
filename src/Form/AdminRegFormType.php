@@ -2,7 +2,7 @@
 
 namespace App\Form;
 
-use App\Entity\User;
+use App\Entity\Admin;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -34,20 +34,6 @@ class AdminRegFormType extends AbstractType
                     ]),
                 ],
             ])
-//            ->add('username', null, [
-//                'label' => 'Your Name', // Set the custom label here
-//                'attr' => [
-//                    'placeholder' => 'First and Last Name',
-//                ],
-//            ])
-//            ->add('agreeTerms', CheckboxType::class, [
-//                'mapped' => false,
-//                'constraints' => [
-//                    new IsTrue([
-//                        'message' => 'You should agree to our terms.',
-//                    ]),
-//                ],
-//            ])
             ->add('plainPassword', RepeatedType::class, [
                 'type' => PasswordType::class,
                 'invalid_message' => 'The password fields should match.',
@@ -77,7 +63,7 @@ class AdminRegFormType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => User::class,
+            'data_class' => Admin::class,
         ]);
     }
 }

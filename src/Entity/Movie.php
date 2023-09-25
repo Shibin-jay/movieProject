@@ -81,9 +81,6 @@ class Movie
         return $this;
     }
 
-
-
-
     public function getId(): ?int
     {
         return $this->id;
@@ -99,7 +96,7 @@ class Movie
         return $this->title;
     }
 
-    public function setReleaseDate(\DateTime $releaseDate): void
+    public function setReleaseDate(?\DateTime $releaseDate): void
     {
         $this->releaseDate = $releaseDate;
     }

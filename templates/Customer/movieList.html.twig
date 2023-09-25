@@ -1,0 +1,32 @@
+{# templates/dashboard/list_movies.html.twig #}
+{% block stylesheets %}<link rel="stylesheet" href="{{ asset('css/movies.css') }}">{% endblock %}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}List of Movies{% endblock %}
+
+{% block body %}
+        <div class="page-head">
+            <h1>Movies List</h1>
+        </div>
+    <div class="main-content">
+        <div class="container">
+            {% for movie in movies %}
+                <div class="container-item">
+                    <div class="card-image">
+                        <img class="card-img" src="{{ movie.imagePath }}" alt="Snowy Mountains">
+                    </div>
+                    <div class="card-content">
+                        <h1 class="card-header">{{ movie.title | capitalize }}</h1>
+                        <p class="date">release date: {{ movie.releaseDate ? movie.releaseDate|date('Y-m-d') : 'N/A' }}</p>
+                        <p class="genre">Genre: {{ movie.genre }}</p>
+                        <button class="card-btn">
+                            <a href="{{ path('app_movie_view', {'id': movie.id}) }}" class="btn btn-primary">View Details</a>
+                        </button>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

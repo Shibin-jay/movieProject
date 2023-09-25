@@ -80,6 +80,7 @@ input:focus{
 .extra-sec{
     margin-top: 25px;
 }
+
 input[type='checkbox'] {
     width: 10px;
     /*height: 10px;*/
@@ -87,7 +88,8 @@ input[type='checkbox'] {
     /*align-items: center;*/
     position: relative;
     margin:5px 0;
-    left:78px
+    left:120px;
+    top: -2px;
 }
 /*li::marker{*/
 /*    display: flex;*/

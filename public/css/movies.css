@@ -1,0 +1,50 @@
+body{
+    font-family: "Amazon Ember", Arial, sans-serif;
+    font-size: 14px;
+}
+.main-content{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+.page-head{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+.container-item{
+    max-width: 300px;
+    height: 475px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    /*flex: 1 0 21%; */
+}
+.card-img{
+    width: 250px;
+    height: 300px;
+}
+.card-header{
+    font-size: 24px;
+    font-family: "Amazon Ember", Arial, sans-serif;
+}
+.card-content{
+    display: flex;
+    flex-direction: column;
+}
+.card-btn{
+    height: 30px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.card-btn a{
+    text-decoration: none;
+    color: black;
+}

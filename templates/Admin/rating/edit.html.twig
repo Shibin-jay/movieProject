@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Rating{% endblock %}
+
+{% block body %}
+    <h1>Edit Rating</h1>
+
+    {{ form_start(form) }}
+    {{ form_row(form.ratingScore) }}
+    {{ form_row(form.movie) }}
+    {{ form_row(form.user) }}
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+
+    {{ form_end(form) }}
+{% endblock %}

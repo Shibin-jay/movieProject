@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}<link rel="stylesheet" href="{{ asset('css/category-list.css') }}">{% endblock %}
+
+{% block body %}
+    <div class="cat-head">
+        <h1>Categories</h1>
+    </div>
+    <div class="category-list">
+        <ul>
+            {% for category in categories %}
+                <div class="category-item">
+                    <li class="cat-title">
+                        <a href="{{ path('movies_by_category', {'categoryId': category.id}) }}">
+                            {{ category.name }}
+                        </a>
+                    </li>
+                    <div class="cat-desc">
+                        <p>Description: {{ category.description }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

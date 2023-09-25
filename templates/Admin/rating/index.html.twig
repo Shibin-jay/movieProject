@@ -1,0 +1,63 @@
+{# templates/admin/rating/index.html.twig #}
+
+{% extends 'base.html.twig' %}
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('css/rating.css') }}">
+    {% endblock %}
+
+{% block title %}Admin Ratings{% endblock %}
+
+{% block body %}
+    <div class="rating-page">
+        <div class="rating-head">
+            <h1>Admin Ratings</h1>
+        </div>
+
+        <div class="rating-content">
+            <table>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Rating Score</th>
+                    <th>Review</th>
+                    <th>User</th>
+                    <th>Movie</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for rating in ratings %}
+                    <tr>
+                        <td>{{ rating.id }}</td>
+                        <td>{{ rating.ratingScore }}</td>
+                        <td>{{ rating.review }}</td>
+                        <td>{{ rating.user.username }}</td>
+                        <td>{{ rating.movie.title }}</td>
+                        <td>
+                            <div class="action-button">
+                                <a href="{{ path('admin_rating_edit', {'id': rating.id}) }}"
+                                   class="edit-btn "
+                                >
+                                    Edit
+                                </a>
+                                <a href="{{ path('admin_categories_delete', {'id': rating.id}) }}"
+                                   class="btn btn-danger delete-btn"
+                                   onclick="return confirm('Are you sure you want to delete this rating?')">
+                                    Delete
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="create-sec">
+            <a href="{{ path('admin_rating_create') }}" class="create-btn" >
+                create
+            </a>
+        </div>
+    </div>
+{#    <a href="{{ path('admin_ratings_create') }}">Create New Rating</a>#}
+{% endblock %}
+

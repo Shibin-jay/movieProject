@@ -22,7 +22,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 180, unique: true)]
     private ?string $email = null;
 
-    #[ORM\Column(type: 'json')]
+    #[ORM\Column(length: 50)]
     private array $roles = [];
 
     /**
@@ -41,12 +41,26 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(targetEntity: Rating::class, mappedBy: 'user')]
     private $ratings;
 
-    public  ?bool $isAdmin= null;
+    public  bool $isAdmin= false;
+
+    /**
+     * @param bool $isAdmin
+     */
+    public function setIsAdmin(bool $isAdmin): self
+    {
+        $this->isAdmin = $isAdmin;
+        return $this;
+
+    }
+
+    public function getIsAdmin(): bool
+    {
+        return $this->isAdmin;
+    }
 
     public function __construct()
     {
         $this->ratings = new ArrayCollection();
-        $this->isAdmin = false;
     }
     public function getRatingScore(){
         return $this->ratings->getRatingScore();
@@ -77,20 +91,20 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         return (string) $this->email;
     }
-    public function setRoles(array $roles): static
-    {
-        if ($this->isAdmin) {
-            $this->roles = ['ROLE_ADMIN'];
-        } else {
-            $this->roles = ['ROLE_CUSTOMER'];
-        }
-
-        return $this;
-    }
-
     public function getRoles(): array
     {
-        return $this->isAdmin ? ['ROLE_ADMIN'] : ['ROLE_CUSTOMER'];
+        $roles =$this->roles ?? ['ROLE_USER'];
+        if ($this->isAdmin) {
+            $this->roles = ['ROLE_ADMIN'];
+        }
+
+        return array_unique($roles);
+    }
+
+    public function setRoles(array $roles): self
+    {
+        $this->roles = $roles;
+        return $this;
     }
 
 

@@ -1,0 +1,21 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Create Rating{% endblock %}
+
+{% block body %}
+    <h1>Create Rating</h1>
+
+    {{ form_start(form) }}
+
+    {{ form_row(form.ratingScore) }}
+    {{ form_row(form.review) }}
+    {{ form_row(form.movie) }}
+    {{ form_row(form.user) }}
+
+    <button type="submit" class="btn btn-primary">Update Rating</button>
+
+    {{ form_end(form) }}
+
+    <a href="{{ path('admin_ratings_list') }}">Back to Ratings List</a>
+{% endblock %}

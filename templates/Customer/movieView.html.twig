@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ movie.getTitle() }}
+{% endblock %}
+{% block stylesheets %}<link rel="stylesheet" href="{{ asset('css/movieView.css') }}">{% endblock %}
+
+{% block body %}
+    <div class="movie-sec">
+        <div class="image-sec">
+            <img src="{{ movie.getImagePath() }}" alt="{{ movie.getTitle() }}" />
+        </div>
+        <div class="right-sec">
+            <div class="movie-title">
+                <h1>{{ movie.getTitle() | capitalize }}</h1>
+            </div>
+            <div class="detail-sec">
+                <p>Release Date: {{ movie.getReleaseDate()|date('F d, Y') }}</p>
+                <p>Genre: {{ movie.getGenre() }}</p>
+                <p>Description: {{ movie.getDescription() }}</p>
+                <p>Category: {{ movie.getCategoryName() }}</p>
+            </div>
+            <div class="review-sec">
+                <h2>Reviews</h2>
+                <ul>
+                    {% for rating in ratings %}
+                        <li>
+                            <span class="review-head">
+                                <strong>{{ rating.user.getUsername() }}</strong>
+                            </span>
+                            <span class="review-rating">
+                                - {{ rating.ratingScore }} &#9733;
+                            </span>
+                            <p>{{ rating.review }}</p>
+                        </li>
+                    {% else %}
+                        <li>No reviews available for this movie.</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="rating-form">
+                <h2>Rate This Movie</h2>
+                <form method="post" action="{{ path('app_movie_rate', {'id': movie.id}) }}">
+                    <div id="rating-score">
+                        {{ form_row(form.ratingScore) }}
+                    </div>
+                    <div id="rating-comment">
+                        {{ form_row(form.review) }}
+                    </div>
+                    {{ form_widget(form) }}
+                    <div id="rating-btn">
+                        <button type="submit">Submit Rating</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

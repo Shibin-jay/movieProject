@@ -1,0 +1,33 @@
+.rating-page{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.category-head, .category-content{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.category-content th, .category-content td{
+    padding: 20px 15px;
+    border: 1px solid #ddd;
+}
+.create-sec{
+    width: 95%;
+    display: flex;
+    justify-content: end;
+    /*margin-right: 50px;*/
+}
+.create-btn{
+    width: 150px;
+    height: 30px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #0066c0;
+}

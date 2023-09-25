@@ -1,0 +1,30 @@
+
+body{
+    padding: 0;
+    font-family: "Amazon Ember",Arial,sans-serif;
+    font-size: 13px;
+    margin: 0;
+}
+.cat-head, .category-list{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.cat-head{
+    font-size: 24px;
+}
+.cat-title a{
+    font-size: 18px;
+    text-decoration: none;
+    cursor: pointer;
+}
+ul{
+    list-style: none;
+}
+.category-list{
+    display: flex;
+    flex-direction: row;
+}
+.category-item{
+    margin: 20px 0;
+}

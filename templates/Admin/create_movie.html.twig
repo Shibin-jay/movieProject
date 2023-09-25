@@ -1,22 +1,38 @@
 {# templates/dashboard/create_movie.html.twig #}
 {% extends 'base.html.twig' %}
+{#{% block stylesheets %}<link rel="stylesheet" href="{{ asset('css/logins') }}">{% endblock %}#}
 
 {% block body %}
-    <h1>Create Movie</h1>
+    <div class="create-form">
+        <div class="form-head">
+            <h1>Create Movie</h1>
+        </div>
+        {{ form_start(form) }}
+        <div class="form-title">
+            {{ form_row(form.releaseDate) }}
 
-    {{ form_start(form) }}
+        </div>
+        <div class="form-genre">
+            {{ form_row(form.genre) }}
+        </div>
+        <div class="form-description">
+            {{ form_row(form.description) }}
+        </div>
+        <div class="form-image-path">
+            {{ form_row(form.imagePath) }}
+        </div>
+        <div class="form-category">
+            {{ form_row(form.category) }}
+        </div>
+        <div class="form-actions">
+            <div id="submit-btn">
+                {{ form_widget(form.clear) }}
+            </div>
+            {{ form_widget(form.save) }}
+        </div>
 
-    {{ form_row(form.title) }}
-    {{ form_row(form.releaseDate) }}
-    {{ form_row(form.genre) }}
-    {{ form_row(form.description) }}
-    {{ form_row(form.imagePath) }}
-    {{ form_row(form.category) }}
-
-    <div class="form-actions">
-        {{ form_widget(form.clear) }}
-        {{ form_widget(form.save) }}
+        {{ form_end(form) }}
     </div>
 
-    {{ form_end(form) }}
+
 {% endblock %}
