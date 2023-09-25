@@ -8,6 +8,7 @@ use App\Form\CustomerRatingType;
 use App\Repository\RatingRepository;
 use App\Repository\MovieRepository;
 use App\Form\RatingType;
+use Doctrine\Common\Collections\Collection;
 use Symfony\Component\Form\FormFactoryInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -32,6 +33,10 @@ class MovieController extends AbstractController
         $repository = $this->em->getRepository(Movie::class);
         $movies =$repository->findAll();
 
+        foreach ($movies as $movie) {
+            $averageRating = $this->calculateAverageRating($movie->getRatings());
+            $movie->setAverageRating($averageRating);
+        }
         return $this->render('Customer/movieList.html.twig', [
             'movies'=> $movies,
         ]);
@@ -72,6 +77,17 @@ class MovieController extends AbstractController
             'ratings' => $ratings,
             'form' => $form->createView(), // Pass the form to the template
         ]);
+    }
+    public function calculateAverageRating(Collection $ratings):float
+    {
+        $totalRating = 0;
+        $count = 0;
+
+        foreach ($ratings as $rating) {
+            $totalRating += $rating->getRatingScore();
+            $count++;
+        }
+        return $count > 0 ? $totalRating / $count : 0;
     }
 
 }

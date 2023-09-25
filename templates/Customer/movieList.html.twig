@@ -20,6 +20,7 @@
                         <h1 class="card-header">{{ movie.title | capitalize }}</h1>
                         <p class="date">release date: {{ movie.releaseDate ? movie.releaseDate|date('Y-m-d') : 'N/A' }}</p>
                         <p class="genre">Genre: {{ movie.genre }}</p>
+                        <p class="avg-rating">Average Rating: {{ movie.averageRating }}/10 &#9733;</p>
                         <button class="card-btn">
                             <a href="{{ path('app_movie_view', {'id': movie.id}) }}" class="btn btn-primary">View Details</a>
                         </button>

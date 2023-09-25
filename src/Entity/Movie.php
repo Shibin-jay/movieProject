@@ -45,6 +45,9 @@ class Movie
     #[ORM\OneToMany(targetEntity: Rating::class, mappedBy: 'movie')]
     private Collection $ratings;
 
+    #[ORM\Column(type: 'float', precision: 2, scale: 1,nullable: true)]
+    private ?float $averageRating;
+
     public function __construct()
     {
         $this->ratings = new ArrayCollection();
@@ -148,6 +151,16 @@ class Movie
     public function getCategoryName(): string
     {
         return $this->category->getName();
+    }
+
+    public function getAverageRating(): ?float
+    {
+        return $this->averageRating;
+    }
+
+    public function setAverageRating(?float $averageRating): void
+    {
+        $this->averageRating = $averageRating;
     }
 
 }
