@@ -101,39 +101,6 @@ class RatingController extends AbstractController
         return $this->redirectToRoute('admin_ratings_list');
     }
 
-//    #[Route('/movies/{id}/rate', name: 'app_movie_rate')]
-//    public function rateMovie(Request $request, Movie $movie, EntityManagerInterface $entityManager): Response
-//    {
-//        $rating = new Rating();
-//
-//        // Create the form without user and movie fields
-//        $form = $this->createForm(CustomerRatingType::class, $rating); // Create the form only once
-//
-//        $form->handleRequest($request);
-//
-//        if ($form->isSubmitted() && $form->isValid()) {
-//            // Set the user and movie for the rating
-//            $rating->setUser($this->getUser());
-//            $rating->setMovie($movie);
-//
-//            // Save the rating to the database
-//            $entityManager->persist($rating);
-//            $entityManager->flush();
-//
-//            // Redirect back to the movie view page
-//            return $this->redirectToRoute('app_movie_view', ['id' => $movie->getId()]);
-//        }
-//
-//        // If the form is not submitted or not valid, or there are errors, you can handle that here
-//
-//        return $this->render('Customer/movieView.html.twig', [
-//            'movie' => $movie,
-//            'ratings' => $movie->getRatings(),
-//            'form' => $form->createView(), // Pass the form to the template
-//        ]);
-//    }
-
-
     #[Route('/movies/{id}/rate', name: 'app_movie_rate')]
     public function rateMovie(
         Request $request,
