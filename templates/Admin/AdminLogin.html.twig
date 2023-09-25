@@ -1,0 +1,43 @@
+{#{% extends 'base.html.twig' %}#}
+{% block stylesheets %}<link rel="stylesheet" href="{{ asset('css/login.css') }}">{% endblock %}
+
+{% block body %}
+<div class="logo-sec">
+    <img src="https://m.media-amazon.com/images/G/01/imdb/authportal/images/www_imdb_logo._CB667618033_.png" alt="logo">
+</div>
+<div class="login-main-sec">
+    <div class="login-sec">
+        <form method="post">
+            {% if error %}
+                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
+
+            {% if app.user %}
+                <div class="mb-3">
+                    You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+                </div>
+            {% endif %}
+
+            <h1 class="h3 mb-3 font-weight-normal">Admin Login</h1>
+            <div class="email-sec">
+                <label for="inputEmail">Email</label>
+                <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+            </div>
+            <div class="password-sec">
+                <label for="inputPassword">Password</label>
+                <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+            </div>
+            <input type="hidden" name="_csrf_token"
+                   value="{{ csrf_token('authenticate') }}"
+            >
+            <button class="btn btn-lg btn-primary create-btn" type="submit">
+                Sign in
+            </button>
+            <div class="policy-sec">
+                <input type="checkbox" />
+                <label>Keep me signed in <a href="#"> Details</a></label>
+                <span class="drop-svg"></span>
+            </div>
+        </form>
+    </div>
+    {% endblock %}

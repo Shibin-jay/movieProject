@@ -1,0 +1,120 @@
+body{
+    padding: 0;
+    font-family: "Amazon Ember",Arial,sans-serif;
+    font-size: 13px;
+    margin: 0;
+}
+.logo-sec{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px ;
+}
+.login-main-sec{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+}
+
+.login-sec{
+    padding: 20px 26px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+.login-sec h1{
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+.email-sec, .password-sec {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px ;
+}
+form{
+    line-height: 1.5;
+}
+.forgot-pass{
+    display: flex;
+    flex-direction: row;
+    gap:103px;
+}
+.forgot-pass span a{
+    text-decoration: none;
+    color: #0066c0;
+    font-size: 13px;
+    font-weight: 400;
+}
+.email-sec input, .password-sec input{
+    height: 31px;
+    width: 296px;
+    border: 1px solid #ddd;
+    border-radius:5px ;
+}
+.email-sec input:focus, .password-sec input:focus{
+    border: 1px solid black;
+    outline: none;
+    box-shadow: 0 0 0 3px #c8f3fa, 0 1px 2px rgba(15,17,17,.15) inset;
+}
+.email-sec label, .password-sec label{
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+#submit-btn, .create-btn{
+    width: 296px;
+    height: 29px;
+    border: none;
+    border-radius: 5px;
+    background: #FFD814 !important;
+    margin-top: 15px;
+}
+.policy-sec{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+}
+/*.policy-sec span{*/
+/*    content: ">";*/
+/*    font-size: 24px;*/
+/*}*/
+.create-btn{
+    background: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 1px 0 rgba(255,255,255,.6) inset;
+}
+.redirect-to-reg{
+    text-align: center;
+    /*margin-top: 25px;*/
+}
+.redirect-to-reg h5::after{
+    content: "";
+    width: 296px;
+    background-color: transparent;
+    display: flex;
+    height: 1px;
+    border-top: 1px solid #e7e7e7;
+    position: absolute;
+    top: 50%;
+    z-index: 1 !important;
+}
+.redirect-to-reg h5{
+    font-size: 12px;
+    font-weight: 400;
+    z-index: 2 !important;
+    position: relative;
+    top: 1px;
+    color: grey;
+    background: white;
+    margin: 5px 2px;
+}
+/*#logo-main-sec{*/
+/*    width: 100%;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: baseline;*/
+/*    height: 100vh;*/
+/*    margin: 20px;*/
+/*}*/

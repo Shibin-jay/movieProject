@@ -1,0 +1,61 @@
+{# templates/dashboard/list_movies.html.twig #}
+{% block stylesheets %}<link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">{% endblock %}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}List of Movies{% endblock %}
+
+{% block body %}
+    <div class="page-head">
+        <h1>List of Movies</h1>
+    </div>
+    <div class="create-sec">
+        <button>
+            <a href="{{ path('dashboard_create_movie') }}" class="btn btn-primary">Create</a>
+        </button>
+    </div>
+
+    <table class="movie-table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Image</th>
+            <th>Title</th>
+            <th>Release Date</th>
+            <th>Genre</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for movie in movies %}
+            <tr>
+                <td>{{ movie.id }}</td>
+                <td>
+                    <img src="{{ movie.imagePath }}" alt="no-pic" class="movie-img-thumbnail" style="max-height: 80px">
+                </td>
+                <td>{{ movie.title }}</td>
+                <td>{{ movie.releaseDate ? movie.releaseDate|date('Y-m-d') : 'N/A' }}</td>
+                <td>{{ movie.genre }}</td>
+                <td>{{ movie.description }}</td>
+                <td>{{ movie.category.name }}</td>
+                <td>
+                    <div class="action-button">
+                        <a href="{{ path('dashboard_edit_movie', {'id': movie.id}) }}"
+                           class="edit-btn "
+                        >
+                            Edit
+                        </a>
+                        <a href="{{ path('dashboard_delete_movie', {'id': movie.id}) }}"
+                           class="btn btn-danger delete-btn"
+                           onclick="return confirm('Are you sure you want to delete this movie?')">
+                            Delete
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,22 @@
+{# templates/dashboard/create_movie.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Create Movie</h1>
+
+    {{ form_start(form) }}
+
+    {{ form_row(form.title) }}
+    {{ form_row(form.releaseDate) }}
+    {{ form_row(form.genre) }}
+    {{ form_row(form.description) }}
+    {{ form_row(form.imagePath) }}
+    {{ form_row(form.category) }}
+
+    <div class="form-actions">
+        {{ form_widget(form.clear) }}
+        {{ form_widget(form.save) }}
+    </div>
+
+    {{ form_end(form) }}
+{% endblock %}

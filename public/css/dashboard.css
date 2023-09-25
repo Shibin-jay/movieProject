@@ -1,0 +1,70 @@
+.page-head{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px 0;
+}
+.movie-table{
+    border: 1px solid #ddd;
+    /*border-collapse: collapse;*/
+    margin: 25px 25px;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+.movie-table th, .movie-table td{
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+}
+/*.movie-table tr{*/
+/*    !*border: 1px solid #ddd;*!*/
+/*}*/
+.create-sec{
+    width: 95%;
+    display: flex;
+    justify-content: end;
+    /*margin-right: 50px;*/
+}
+.create-sec button{
+    width: 150px;
+    height: 30px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    background: #0066c0;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+.action-button {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+.edit-btn{
+        color: #ddd;
+        padding: 0.7em 1.7em;
+        font-size: 12px;
+        border-radius: 0.5em;
+        background: #4F709C;
+        border: 1px solid #e8e8e8;
+        transition: all .3s;
+        box-shadow: 6px 6px 12px #c5c5c5,-6px -6px 12px #ffffff;
+}
+.delete-btn{
+    color: #090909;
+    padding: 0.7em 1.7em;
+    font-size: 12px;
+    border-radius: 0.5em;
+    background: #E25E3E;
+    border: 1px solid #E25E3E;
+    transition: all .3s;
+    box-shadow: 6px 6px 12px #c5c5c5,
+    -6px -6px 12px #ffffff;
+}
+
+

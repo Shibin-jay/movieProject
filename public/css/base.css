@@ -1,0 +1,23 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+.navbar{
+    width: 100%;
+    height: 65px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px;
+    background: black;
+    align-items: center;
+}
+.navbar .nav-items ul{
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+.navbar .nav-items ul li a{
+    color: white;
+    text-decoration: none;
+}

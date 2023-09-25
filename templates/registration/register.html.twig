@@ -1,0 +1,44 @@
+{#{% extends 'base.html.twig' %}#}
+{% block stylesheets %}<link rel="stylesheet" href="{{ asset('css/registration.css') }}">{% endblock %}
+{% block body %}
+    <div class="logo-sec">
+        <img src="https://m.media-amazon.com/images/G/01/imdb/authportal/images/www_imdb_logo._CB667618033_.png">
+    </div>
+    <div class="reg-main-sec">
+        <div class="reg-sec">
+            <h1>Create Account</h1>
+
+            {{ form_errors(registrationForm) }}
+
+            {{ form_start(registrationForm) }}
+            <div class="name-sec1">
+                {{ form_row(registrationForm.username) }}
+            </div>
+            <div class="email-sec">
+                {{ form_row(registrationForm.email) }}
+            </div>
+            <div class="password-sec">
+                {{ form_row(registrationForm.plainPassword.first, { label: 'Password' }) }}
+                <div>
+                    <p>
+                        <img src="{{ asset('icons/ei-icon.png') }}" alt="exclamation-logo" class="exclam-logo" />
+                        Passwords must be at least 8 characters.
+                    </p>
+                </div>
+            </div>
+            <div class="re-password-sec">
+                {{ form_row(registrationForm.plainPassword.second, { label: 'Repeat Password' }) }}
+            </div>
+            <div class="admin-check">
+                {{ form_row(registrationForm.isAdmin) }}
+
+            </div>
+            <button type="submit" class="reg-submit-btn btn">Register</button>
+            <div class="extra-sec">
+                Already have an account?
+                <a href="/login">Sign in</a>
+            </div>
+            {{ form_end(registrationForm) }}
+        </div>
+    </div>
+{% endblock %}
